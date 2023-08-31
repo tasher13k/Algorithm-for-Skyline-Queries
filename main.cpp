@@ -8,9 +8,9 @@ int main() {
     print_vector_of_points(dataset);
 
     vector_type result_nn = get_skyline(dataset);
-    print_vector_of_points(result_nn);
+    //print_vector_of_points(result_nn);
 
-    //draw_graphic(dataset, result_nn);
+    draw_graphic(dataset, result_nn);
 
     return 0;
 }
