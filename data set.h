@@ -11,8 +11,8 @@ using vector_type = std::vector<point_type>;
 
 namespace constants{
     inline constexpr size_t count_of_points_in_dataset {100};
-    inline constexpr size_t max_value_of_coordinate = 500;
-    inline constexpr size_t min_value_of_coordinate = 1;
+    inline constexpr size_t max_value_of_coordinate = 750;
+    inline constexpr size_t min_value_of_coordinate = 10;
 }
 
 void print_vector_of_points(const vector_type &);

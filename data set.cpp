@@ -12,6 +12,7 @@ void fill_vector_of_points_with_random_values(vector_type & data) {
 }
 
 void print_vector_of_points(const vector_type & data) {
+    std::cout << "Random generated dataset of " << constants::count_of_points_in_dataset << " points"<< std::endl;
     for(auto& c_point : data){
         std::cout <<  "(" << c_point.x() << ", " << c_point.y() << ")" << std::endl;
     }

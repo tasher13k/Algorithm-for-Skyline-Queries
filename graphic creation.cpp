@@ -1,7 +1,7 @@
 #include "graphic creation.h"
 
 void draw_graphic(const vector_type & all_points, const vector_type & skyline_points){
-    sf::RenderWindow window(sf::VideoMode(1000, 600), "Dataset illustration");
+    sf::RenderWindow window(sf::VideoMode(graphic_constants::window_width, graphic_constants::window_height), "Dataset visualizer");
 
     // run the program as long as the window is open
     while (window.isOpen())
@@ -15,35 +15,32 @@ void draw_graphic(const vector_type & all_points, const vector_type & skyline_po
                 window.close();
         }
 
-        //skyline_model sk(all_points);
-        std::vector<point_model> all_pnts;
-        std::vector<point_model> skyline_pnts;
-//    window.draw(sk.get_lines());
+        coordinate_axis_model coordinate_axis{};
+        std::vector<point_model> all_dataset;
+        std::vector<point_model> only_skyline_points;
+
+        for(auto & cur_point : all_points) {
+            all_dataset.emplace_back(cur_point);
+        }
+        for(auto & cur_point : skyline_points) {
+            only_skyline_points.emplace_back(cur_point, true);
+        }
 
         // clear the window with black color
         window.clear(sf::Color::Black);
 
         // draw everything here...
-        // window.draw(...);
 
-        for(auto & pnt : all_points) {
-            all_pnts.emplace_back(pnt);
-        }
-        for(auto & pnt : skyline_points) {
-            skyline_pnts.emplace_back(pnt, true);
-        }
-
-
-        //skyline_model skln(skyline_points);
-        //window.draw(skln.get_lines());
-
-        for(auto & pnt : all_pnts){
+        for(auto & pnt : all_dataset){
             window.draw(pnt.get_point());
         }
-        for(auto & pnt : skyline_pnts){
+        for(auto & pnt : only_skyline_points){
             window.draw(pnt.get_point());
         }
 
+        window.draw(coordinate_axis.get_axis());
+        window.draw(coordinate_axis.get_left_top_triangle());
+        window.draw(coordinate_axis.get_right_bottom_triangle());
 
         // end the current frame
         window.display();
