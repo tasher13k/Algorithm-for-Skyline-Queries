@@ -7,7 +7,6 @@ find_package(SFML 2.5.1 COMPONENTS graphics REQUIRED)
 
 add_executable(Algorithm_for_Skyline_Queries main.cpp
         "data set.cpp"
-        "data set.h"
         "skyline calculator.cpp"
         "graphic creation.cpp")
 

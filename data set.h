@@ -6,11 +6,11 @@
 #include <boost/geometry.hpp>
 
 namespace bg = boost::geometry;
-using point_type = bg::model::d2::point_xy<float>;
+using point_type = bg::model::d2::point_xy<size_t>;
 using vector_type = std::vector<point_type>;
 
 namespace constants{
-    inline constexpr size_t count_of_points_in_dataset {100};
+    inline constexpr size_t count_of_points_in_dataset {1000};
     inline constexpr size_t max_value_of_coordinate = 750;
     inline constexpr size_t min_value_of_coordinate = 10;
 }
