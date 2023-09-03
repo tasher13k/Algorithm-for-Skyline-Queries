@@ -12,3 +12,8 @@ add_executable(Algorithm_for_Skyline_Queries main.cpp
 
 target_link_libraries(Algorithm_for_Skyline_Queries sfml-graphics)
 
+target_compile_options(Algorithm_for_Skyline_Queries
+        PRIVATE
+        -O2
+)
+

@@ -17,7 +17,7 @@ int main() {
 
     dataset::print_vector_of_points(result_nn);
     std::cout << "Count of skyline points is " << result_nn.size() << std::endl;
-    std::cout << "Calculation time was " << duration<double>(dur).count() << " sec" << std::endl;
+    std::cout << "Calculation time was " << duration<double, std::milli>(dur).count() << " ms" << std::endl;
 
     graphic::draw_graphic(dataset, result_nn);
 

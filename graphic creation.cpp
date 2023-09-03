@@ -1,16 +1,15 @@
 #include "graphic creation.h"
 
-namespace graphic{
-    void draw_graphic(const vector_type & all_points, const vector_type & skyline_points){
-        sf::RenderWindow window(sf::VideoMode(graphic_constants::window_width, graphic_constants::window_height), "Dataset visualizer");
+namespace graphic {
+    void draw_graphic(const vector_type &all_points, const vector_type &skyline_points) {
+        sf::RenderWindow window(sf::VideoMode(graphic_constants::window_width, graphic_constants::window_height),
+                                "Dataset visualizer");
 
         // run the program as long as the window is open
-        while (window.isOpen())
-        {
+        while (window.isOpen()) {
             // check all the window's events that were triggered since the last iteration of the loop
             sf::Event event = {};
-            while (window.pollEvent(event))
-            {
+            while (window.pollEvent(event)) {
                 // "close requested" event: we close the window
                 if (event.type == sf::Event::Closed)
                     window.close();
@@ -20,10 +19,10 @@ namespace graphic{
             std::vector<point_model> all_dataset;
             std::vector<point_model> only_skyline_points;
 
-            for(auto & cur_point : all_points) {
+            for (auto &cur_point: all_points) {
                 all_dataset.emplace_back(cur_point);
             }
-            for(auto & cur_point : skyline_points) {
+            for (auto &cur_point: skyline_points) {
                 only_skyline_points.emplace_back(cur_point, true);
             }
 
@@ -32,10 +31,10 @@ namespace graphic{
 
             // draw everything here...
 
-            for(auto & pnt : all_dataset){
+            for (auto &pnt: all_dataset) {
                 window.draw(pnt.get_point());
             }
-            for(auto & pnt : only_skyline_points){
+            for (auto &pnt: only_skyline_points) {
                 window.draw(pnt.get_point());
             }
 
@@ -61,7 +60,7 @@ namespace graphic{
         }
     }
 
-    coordinate_axis_model::coordinate_axis_model(){
+    coordinate_axis_model::coordinate_axis_model() {
         //lines for coordinate axis
         lines.setPrimitiveType(sf::Lines);
         lines.append(sf::Vector2f(graphic_constants::zero_of_x_axis, graphic_constants::zero_of_y_axis)); //left-top

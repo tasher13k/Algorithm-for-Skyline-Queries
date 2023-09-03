@@ -1,9 +1,10 @@
 #ifndef ALGORITHM_FOR_SKYLINE_QUERIES_GRAPHIC_CREATION_H
 #define ALGORITHM_FOR_SKYLINE_QUERIES_GRAPHIC_CREATION_H
+
 #include <SFML/Graphics.hpp>
 #include "data set.h"
 
-namespace graphic{
+namespace graphic {
     void draw_graphic(const vector_type &all_points, const vector_type &skyline_points);
 
     namespace graphic_constants {
